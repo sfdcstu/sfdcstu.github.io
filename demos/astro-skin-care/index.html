@@ -1,0 +1,77 @@
+<html>
+<head>
+  <title>Astro Skin Care Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <style>
+    body {
+      margin: 0;
+    }
+    .background-container {
+      width: 100%;
+    }
+    .background-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-container">
+  <img src="background.png" alt="Background">
+</div>
+
+<script type="text/javascript" 
+             id='init-agentforce-messaging' 
+             src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js' 
+             onload='agentforce_messaging.init({
+                    "siteUrl": "https://deevo-demo.my.site.com/NGC1",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxWs000000S3fhKAC", 
+                            "domainUrl":"https://deevo-demo.my.salesforce.com",
+                            "endpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/agents/{AGENT_ID}/sessions",
+                            "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                            "authTokenEndpoint": "https://deevo-demo.my.site.com/NGC1/agentforce/bootstrap?agentid=0XxWs000000S3fhKAC"
+                    },
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: {
+                          cta: "Ask Astro",
+                        },
+                        chatHeader: {
+                          agentName: "Astro Agent",
+                          backgroundColor: "#8B7355", // Primary sepia
+                          textColor: "#faf9f7", // sepia-50 for contrast
+                        },
+                        chatInput: {
+                          backgroundColor: "#f5f3ef", // sepia-100
+                          poweredByEnabled: true,
+                          placeholder: "Ask about skincare, products, or routines...",
+                          textColor: "#544331", // sepia-800
+                        },
+                        chatWindow: {
+                          backgroundColor: "#faf9f7", // sepia-50
+                          loadingText: "Astro Skin Care is thinking...",
+                        },
+                        chatMessage: {
+                          agent: {
+                            backgroundColor: "#ebe6d9", // sepia-200
+                            textColor: "#443527", // sepia-900
+                            avatarEnabled: false,
+                          },
+                          user: {
+                            backgroundColor: "#87A96B", // Primary sage green
+                            textColor: "#faf9f7", // sepia-50 for contrast
+                          },
+                          metadata: {
+                            textColor: "#7a6449", // sepia-600
+                          },
+                        },
+                      },
+                    }
+            });'>
+</script>
+
+</body>
+</html>
