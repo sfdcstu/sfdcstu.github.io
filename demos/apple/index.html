@@ -34,7 +34,40 @@
                             "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
                             "authTokenEndpoint": "https://deevo-demo.my.site.com/NGC1/agentforce/bootstrap?agentid=0XxWs000000S3fhKAC"
                     },
-                    "uiConfiguration": {}
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: { cta: "Ask Apple" },
+                        chatHeader: {
+                          agentName: "Apple Genius",
+                          backgroundColor: "#F5F5F7", // Apple light gray
+                          textColor: "#1D1D1F", // Apple dark text
+                        },
+                        chatInput: {
+                          backgroundColor: "#FFFFFF",
+                          textColor: "#1D1D1F",
+                          placeholder: "Type your question...",
+                          poweredByEnabled: false,
+                        },
+                        chatWindow: {
+                          backgroundColor: "#F5F5F7",
+                          loadingText: "Loading from Apple...",
+                        },
+                        chatMessage: {
+                          agent: {
+                            backgroundColor: "#fdfdfd",
+                            textColor: "#1D1D1F",
+                            avatarEnabled: false,
+                          },
+                          user: {
+                            backgroundColor: "#0071e3",
+                            textColor: "#FFFFFF",
+                          },
+                          metadata: {
+                            textColor: "#888888",
+                          },
+                        },
+                      },
+                    }
             });'>
 </script>
 
