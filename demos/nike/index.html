@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Nike Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      margin: 0;
+    }
+    .background-container {
+      width: 100%;
+    }
+    .background-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-container">
+  <img src="background.png" alt="Background">
+</div>
+
+<script type="text/javascript" 
+             id='init-agentforce-messaging' 
+             src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js' 
+             onload='agentforce_messaging.init({
+                    "siteUrl": "https://deevo-demo.my.site.com/NGC1",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxWs000000S3fhKAC", 
+                            "domainUrl":"https://deevo-demo.my.salesforce.com",
+                            "endpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/agents/{AGENT_ID}/sessions",
+                            "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                            "authTokenEndpoint": "https://deevo-demo.my.site.com/NGC1/agentforce/bootstrap?agentid=0XxWs000000S3fhKAC"
+                    },
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: { cta: "Ask Nike" },
+                        chatHeader: {
+                          agentName: "Nike Coach",
+                          backgroundColor: "#000000", // Nike black
+                          textColor: "#00FF99", // Neon green
+                        },
+                        chatInput: {
+                          backgroundColor: "#222222",
+                          textColor: "#FFFFFF",
+                          placeholder: "Type your Nike question...",
+                          poweredByEnabled: false,
+                        },
+                        chatWindow: {
+                          backgroundColor: "#111111",
+                          loadingText: "JUST DO IT",
+                        },
+                        chatMessage: {
+                          agent: {
+                            backgroundColor: "#333333",
+                            textColor: "#FFFFFF", // Neon green
+                            avatarEnabled: false,
+                          },
+                          user: {
+                            backgroundColor: "#00FF99", // Neon green
+                            textColor: "#000000",
+                          },
+                          metadata: {
+                            textColor: "#888888",
+                          },
+                        },
+                      },
+                    }
+            });'>
+</script>
+
+</body>
+</html>

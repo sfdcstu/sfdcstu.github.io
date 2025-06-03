@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>McDonald's Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      margin: 0;
+    }
+    .background-container {
+      width: 100%;
+    }
+    .background-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-container">
+  <img src="background.png" alt="Background">
+</div>
+
+<script type="text/javascript" 
+             id='init-agentforce-messaging' 
+             src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js' 
+             onload='agentforce_messaging.init({
+                    "siteUrl": "https://deevo-demo.my.site.com/NGC1",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxWs000000S3fhKAC", 
+                            "domainUrl":"https://deevo-demo.my.salesforce.com",
+                            "endpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/agents/{AGENT_ID}/sessions",
+                            "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                            "authTokenEndpoint": "https://deevo-demo.my.site.com/NGC1/agentforce/bootstrap?agentid=0XxWs000000S3fhKAC"
+                    },
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: { cta: "Ask McDonald&apos;s" },
+                        chatHeader: {
+                          agentName: "McAgent",
+                          backgroundColor: "#FFC72C", // McDonalds yellow
+                          textColor: "#DA291C", // McDonalds red
+                        },
+                        chatInput: {
+                          backgroundColor: "#FFF5D6",
+                          textColor: "#DA291C",
+                          placeholder: "Type your McDonald&apos;s question...",
+                          poweredByEnabled: true,
+                        },
+                        chatWindow: {
+                          backgroundColor: "#FFFFFF",
+                          loadingText: "Loading from McDonald&apos;s...",
+                        },
+                        chatMessage: {
+                          agent: {
+                            backgroundColor: "#FFC72C",
+                            textColor: "#DA291C",
+                            avatarEnabled: false,
+                          },
+                          user: {
+                            backgroundColor: "#DA291C",
+                            textColor: "#FFFFFF",
+                          },
+                          metadata: {
+                            textColor: "#888888",
+                          },
+                        },
+                      }
+                    }
+            });'>
+</script>
+
+</body>
+</html>
