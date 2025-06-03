@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Blue Bottle Coffee Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="robots" content="noindex">
+  <style>
+    body {
+      margin: 0;
+    }
+    .background-container {
+      width: 100%;
+    }
+    .background-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="background-container">
+  <img src="background.png" alt="Background">
+</div>
+
+<script type="text/javascript" 
+             id='init-agentforce-messaging' 
+             src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js' 
+             onload='agentforce_messaging.init({
+                    "siteUrl": "https://deevo-demo.my.site.com/NGC1",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxWs000000S3fhKAC", 
+                            "domainUrl":"https://deevo-demo.my.salesforce.com",
+                            "endpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/agents/{AGENT_ID}/sessions",
+                            "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                            "authTokenEndpoint": "https://deevo-demo.my.site.com/NGC1/agentforce/bootstrap?agentid=0XxWs000000S3fhKAC"
+                    },
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: { cta: "Ask Blue" },
+                        chatHeader: {
+                          agentName: "Blue Bottle Coffee",
+                          backgroundColor: "#E6DFD1", // Softer sepia for header
+                          textColor: "#189cc4",
+                        },
+                        chatInput: {
+                          backgroundColor: "#F5F1E8", // Light sepia
+                          textColor: "#3A2E1F", // Deep brown
+                          placeholder: "What brings you here today?",
+                          poweredByEnabled: false,
+                        },
+                        chatWindow: {
+                          backgroundColor: "#FBF7F0", // Soft cream
+                          loadingText: "Brewing",
+                        },
+                        chatMessage: {
+                          agent: {
+                            backgroundColor: "#F0EAE0", // Softer sepia for agent messages
+                            textColor: "#3A2E1F", // Deep brown
+                            avatarEnabled: false,
+                          },
+                          user: {
+                            backgroundColor: "#189cc4", // Softer muted brown
+                            textColor: "#FBF7F0", // Soft cream
+                          },
+                          metadata: {
+                            textColor: "#9B8979", // Muted brown
+                          },
+                        },
+                      },
+                    }
+            });'>
+</script>
+
+</body>
+</html>
