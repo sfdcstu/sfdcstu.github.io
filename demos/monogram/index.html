@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>Monogram Demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    <meta name="robots" content="noindex" />
+    <style>
+      body {
+        margin: 0;
+      }
+      .background-container {
+        width: 100%;
+      }
+      .background-container img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-container">
+      <img src="background.png" alt="Background" />
+    </div>
+
+    <script
+      type="text/javascript"
+      id="init-agentforce-messaging"
+      src="https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js"
+      onload='agentforce_messaging.init({
+                    "siteUrl": "https://deevo-demo.my.site.com/NGC1",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxWs000000S3fhKAC", 
+                            "domainUrl":"https://deevo-demo.my.salesforce.com",
+                            "endpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/agents/{AGENT_ID}/sessions",
+                            "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                            "authTokenEndpoint": "https://deevo-demo.my.site.com/NGC1/agentforce/bootstrap?agentid=0XxWs000000S3fhKAC"
+                    },
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: {
+                          iconUrl: "/chat-bubble.svg",
+                          cta: "Ask Monogram",
+                        },
+                        chatHeader: {
+                          agentName: "Monogram Concierge",
+                          backgroundColor: "#DDC07F", // Sandstone
+                          textColor: "#1B1D1C", // Charcoal
+                        },
+                        chatInput: {
+                          backgroundColor: "#FFFFFF", // White
+                          poweredByEnabled: true,
+                          placeholder: "Type your question...",
+                          textColor: "#404041", // Slate
+                        },
+                        chatWindow: {
+                          backgroundColor: "#FFFFFF", // White
+                          loadingText: "ELEVATE EVERYTHING",
+                        },
+                        chatMessage: {
+                          agent: {
+                            backgroundColor: "#F3F1F0", // Mother-of-Pearl (grey)
+                            textColor: "#1B1D1C", // Charcoal
+                            avatarEnabled: true,
+                            iconUrl:
+                              "https://www.monogram.com/webruntime/org-asset/5416785efc/resource/081Ke000000GnEK/img/MarkOnlyLogo.svg",
+                          },
+                          user: {
+                            backgroundColor: "#DDC07F", // Sandstone
+                            textColor: "#1B1D1C", // Charcoal
+                          },
+                          metadata: {
+                            textColor: "#404041", // Slate
+                          },
+                        },
+                      },
+                    }
+            });'
+    ></script>
+  </body>
+</html>
