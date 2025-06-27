@@ -35,15 +35,18 @@
                             "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
                             "authTokenEndpoint": "https://sdo256agentforcevoicev1.my.site.com/ngcCostco/agentforce/bootstrap?agentid=0XxfI00000031nZSAQ"
                     },
+                    // Costco Blue: #0060A9
+                    // Costco Red: #E32A36
                     "uiConfiguration": {
                       components: {
                         chatFab: {
                           cta: "Ask Costco", 
-                          // iconUrl: "https://swift-eagle-development.s3.us-east-2.amazonaws.com/releases/ngc/0.3/chat-bubble.svg",
+                          backgroundColor: "#0060A9",
+                          textColor: "#FFFFFF",
                         },
                         chatHeader: {
                           agentName: "Costco Agent",
-                          backgroundColor: "#E32A36",
+                          backgroundColor: "#0060A9",
                           textColor: "#FFFFFF",
                         },
                         chatInput: {
@@ -54,12 +57,11 @@
                         },
                         chatMessage: {
                           agent: {
-                            avatarEnabled: false,
-                            // iconUrl:
-                            //   "https://swift-eagle-development.s3.us-east-2.amazonaws.com/releases/ngc/0.3/agent-icon.svg",
+                            avatarEnabled: true,
+                            iconUrl: "https://resc.pocketapk.com/images/appinfocenter/19989/logo_pad.jpg",
                           },
                           user: {
-                            backgroundColor: "#0060A9",
+                            backgroundColor: "#E32A36",
                           }
                         },
                       },
