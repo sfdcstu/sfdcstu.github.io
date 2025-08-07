@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOC test</title>
+    <link rel="preload" href="https://orgfarm-7bf90f8227.test1.my.pc-rnd.site.com/ESWDeployment21753910240491" as="document">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet"
+        href="https://kyprrmfhcj2t163ei4lgm1ebe0bedu3tes.lightning.force-com.kyprrmfhcj2t163ei4lgm1ebe0bedu3.wb.crm.dev:6101/l/%7B%22mode%22%3A%22DEV%22%2C%22dfs%22%3A%228%22%2C%22app%22%3A%22one%3Aone%22%2C%22loaded%22%3A%7B%22APPLICATION%40markup%3A%2F%2Fone%3Aone%22%3A%223877_Ttv_ol3nENxUlepotm8N6g%22%7D%2C%22styleContext%22%3A%7B%22c%22%3A%22webkit%22%2C%22x%22%3A%5B%223%22%2C%22isDesktop%22%5D%2C%22tokens%22%3A%5B%22markup%3A%2F%2Fforce%3AsldsTokens%22%2C%22markup%3A%2F%2Fforce%3Abase%22%2C%22markup%3A%2F%2Fforce%3AoneSalesforceSkin%22%2C%22markup%3A%2F%2Fforce%3AlevelOneDensity%22%2C%22markup%3A%2F%2Fforce%3AthemeTokens%22%2C%22markup%3A%2F%2Fforce%3AformFactorLarge%22%5D%2C%22tuid%22%3A%22Znr7oYlb2GvSTuIqpIQxEw%22%2C%22cuid%22%3A-646708155%7D%2C%22pathPrefix%22%3A%22%22%7D/app.css?3=">
+    <link rel="stylesheet"
+        href="https://kyprrmfhcj2t163ei4lgm1ebe0bedu3tes.lightning.force-com.kyprrmfhcj2t163ei4lgm1ebe0bedu3.wb.crm.dev:6101/content/lwr/3d4414cc9b9db1226b6249d23a976236/slds-plus.css">
+</head>
+
+<body>
+
+<script type="text/javascript" 
+             id='init-agentforce-messaging' 
+             src='https://test-service.force.com/embeddedservice/agentforcemessaging/0.3/init.js' 
+             onload='agentforce_messaging.init({
+                    "siteUrl": "https://orgfarm-7bf90f8227.test1.my.pc-rnd.site.com/ESWDeployment21753910240491",
+                    "agentApiConfiguration": {
+                            "agentId":"0XxfI00000031nZSAQ", 
+                            "domainUrl":"https://orgcs--csdev8sb0.sandbox.my.salesforce.com",
+                            "endpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/agents/{AGENT_ID}/sessions",
+                            "voiceEndpoint": "https://api.salesforce.com/einstein/ai-agent/v1.1/realtime/sessions/{SESSION_ID}/join",
+                            "authTokenEndpoint": "https://orgcs--csdev8sb0.sandbox.my.site.com/helppanel/s/agentforce/bootstrap?agentid=0XxAE00000002zV0AQ"
+                    },
+                    "uiConfiguration": {
+                      components: {
+                        chatFab: {
+                          cta: "Ask Costco", 
+                        },
+                        chatHeader: {
+                          agentName: "Costco Agent",
+                          backgroundColor: "#E32A36",
+                          textColor: "#FFFFFF",
+                        },
+                        chatInput: {
+                          placeholder: "Type your message",
+                        },
+                        chatWindow: {
+                          loadingText: "DO THE RIGHT THING",
+                        },
+                        chatMessage: {
+                          agent: {
+                            avatarEnabled: false,
+                          },
+                          user: {
+                            backgroundColor: "#0060A9",
+                          }
+                        },
+                      },
+                    }
+            });'>
+</script>   
+
+
+    <div class="background-container">
+        <img src="./images/background.png" alt="Background">
+      </div>
+    <div class="site-content-container">
+        <div class="agent-section">
+            <div class="chat-container" id="chatContainer">
+                <div id="cwc-shell">
+                </div>
+            </div>
+
+            <!-- Fixed Chat Button -->
+            <button class="chat-toggle" id="chatToggle">
+                <span>Ask Agentforce</span>
+                <img src="./images/chat-bubble.svg" alt="Chat Icon" class="chat-icon" />
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <!-- Lightning Out JavaScript Library -->
+    <!-- Replace YOUR_SALESFORCE_INSTANCE with your actual Salesforce domain -->
+    <script src="index.js"></script>
+</body>
+
+</html>
