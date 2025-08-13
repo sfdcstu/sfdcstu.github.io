@@ -1,1 +1,1 @@
-# sfdcstu.github.io
+Basic, public demos hosted at https://sfdcstu.github.io/demos/.
