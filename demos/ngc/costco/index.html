@@ -67,5 +67,19 @@
             });'>
 </script>
 
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            const iframe = document.getElementById('agentforce-messaging-frame');
+            const message = {
+                type: 'changeColor',
+                color: 'red'
+            };
+            
+            iframe.contentWindow.postMessage(message, '*');
+        }, 500);
+    });
+</script>
+
 </body>
 </html>
