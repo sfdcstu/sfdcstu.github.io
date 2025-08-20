@@ -71,12 +71,23 @@
     window.addEventListener('load', function() {
         setTimeout(function() {
             const iframe = document.getElementById('agentforce-messaging-frame');
+            if (!iframe) {
+                console.debug('Debug: agentforce-messaging-frame iframe not found');
+                return;
+            } else {
+                console.debug('Debug: Found iframe:', iframe);
+            }
             const message = {
                 type: 'changeColor',
                 color: 'red'
             };
-            
-            iframe.contentWindow.postMessage(message, '*');
+            console.debug('Debug: Sending postMessage to iframe:', message);
+            try {
+                iframe.contentWindow.postMessage(message, '*');
+                console.debug('Debug: postMessage sent successfully');
+            } catch (e) {
+                console.error('Debug: Error sending postMessage:', e);
+            }
         }, 5000);
     });
 </script>
