@@ -1,27 +1,22 @@
-
-
 <html>
 <head>
-  <title>cwc demo</title>
+  <title>CWC development</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 </head>
 <body>
 
 <script type='text/javascript'>
-	function initEmbeddedMessaging() {
+	function initAgentforceMessaging() {
 		try {
 			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 			agentforce_messaging.settings.devMode = true; // enable devMode to see un-minified js
 
 			agentforce_messaging.init(
-				// '00Dxx00oyLNu5fE',
-				'00DSG00000XOfTf', // sdb6 test org id
-				// 'cwc_0',
-				'cwc_salesforce_2', // sdb6 test org EmbeddedServiceDeployments
-				'https://orgfarm-441c356f7f.my.site-com.csruea7rydjv1l7434na.wa.crm.dev:6101/ESWcwc01756318790670',
+				'00Dxx00SCfgnslc',
+				'CWC_0910_0',
+				'https://orgfarm-45023f78ad.my.site-com.w7sugq0x8na00x76fmutq68m3.wc.crm.dev:6101/ESWCWC091001757534295759',
 				{
-					// scrt2URL: 'http://orgfarm-441c356f7f.my.salesforce-scrt-com.csruea7rydjv1l7434na.wa.crm.dev'
-					scrt2URL: 'https://orgfarm-0b9845e12f.test1.my.pc-rnd.salesforce-scrt.com' // sdb6 test org scrt2URL
+					scrt2URL: 'http://orgfarm-45023f78ad.my.salesforce-scrt-com.w7sugq0x8na00x76fmutq68m3.wc.crm.dev'
 				}
 			);
 		} catch (err) {
@@ -29,6 +24,6 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-441c356f7f.my.site-com.csruea7rydjv1l7434na.wa.crm.dev:6101/ESWcwc01756318790670/assets/js/init.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-45023f78ad.my.site-com.w7sugq0x8na00x76fmutq68m3.wc.crm.dev:6101/ESWCWC091001757534295759/assets/js/init.js' onload='initAgentforceMessaging()'></script>
 </body>
 </html>
