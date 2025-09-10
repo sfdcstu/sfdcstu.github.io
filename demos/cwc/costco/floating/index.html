@@ -24,24 +24,24 @@
 </div>
 
 <script type='text/javascript'>
-	function initEmbeddedMessaging() {
+	function initAgentforceMessaging() {
 		try {
 			agentforce_messaging.settings.language = 'en'; // For example, enter 'en' or 'en-US'
 			agentforce_messaging.settings.devMode = true;
 			agentforce_messaging.init(
-				'00DSB00000QAo9R',
-				'Unauth_4',
-				'https://orgfarm-0b9845e12f.test1.my.pc-rnd.site.com/ESWcwcsalesforce21755190123625',
+				'00DSG00000XOfTf',
+				'cwc_salesforce_6',
+				'https://orgfarm-0b9845e12f.test1.my.pc-rnd.site.com/ESWcwcsalesforce61757546227459',
 				{
-					scrt2URL: 'https://orgfarm-0c5a291cea.test1.my.pc-rnd.salesforce-scrt.com'
+					scrt2URL: 'https://orgfarm-0b9845e12f.test1.my.pc-rnd.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
+			console.error('Error loading Agentforce Messaging: ', err);
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-0b9845e12f.test1.my.pc-rnd.site.com/ESWcwcsalesforce21755190123625/assets/js/init.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-0b9845e12f.test1.my.pc-rnd.site.com/ESWcwcsalesforce61757546227459/assets/js/init.js' onload='initAgentforceMessaging()'></script>
 
 <!-- <script>
   window.addEventListener('load', function() {
