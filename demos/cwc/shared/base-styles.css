@@ -1,0 +1,14 @@
+/* Base styles shared across all demos */
+body {
+  margin: 0;
+}
+
+.background-container {
+  width: 100%;
+}
+
+.background-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

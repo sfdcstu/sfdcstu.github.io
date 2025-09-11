@@ -5,7 +5,7 @@ function toggleMenu() {
 }
 
 function sendMessage(message) {
-    agentforce_messaging.util.sendTextMessage(message);
+  agentforce_messaging.util.sendTextMessage(message);
 }
 
 // Initialize menu when DOM is loaded
