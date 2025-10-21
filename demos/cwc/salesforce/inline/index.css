@@ -252,12 +252,12 @@ body {
     /* border: 1px solid rgba(255, 255, 255, 0.2); */
 }
 
-#cwc-shell iframe {
+/* #cwc-shell iframe {
     width: 100% !important;
     height: 100% !important;
     border: none;
     flex: 1;
-}
+} */
 
 /* Responsive */
 @media (max-width: 768px) {
