@@ -4,100 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inline Demo</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Main container for the entire layout */
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            padding: 40px 20px 20px;
-            box-sizing: border-box;
-        }
-
-        /* Title */
-        .title {
-            font-size: 32px;
-            font-weight: 600;
-            color: #202123;
-            margin: 0 0 40px 0;
-            text-align: center;
-        }
-
-        /* Center the site content container */
-        .site-content-container {
-            flex: 1;
-            display: flex;
-            align-items: stretch;
-            justify-content: center;
-            width: 100%;
-            min-height: 0;
-        }
-
-        /* Style the centered cwc-shell */
-        #cwc-shell {
-            width: 48rem;
-            height: 100%;
-            background: #ffffff;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        #cwc-shell iframe {
-            width: 100% !important;
-            height: 100% !important;
-            border: none;
-            flex: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+    <header class="top-nav">
+        <div class="nav-left">
+            <button class="nav-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M3 12h18m-9-9l9 9-9 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <span class="nav-text">Inline Demo</span>
+        </div>
+        <div class="nav-right">
+            <button class="nav-button login-btn">Log in</button>
+            <button class="nav-button signup-btn">Sign up for free</button>
+        </div>
+    </header>
+
     <div class="main-container">
-        <h1 class="title">Inline</h1>
+        <h1 class="title">Inline Demo</h1>
         
         <div class="site-content-container">
             <div class="cwc-shell" id="cwc-shell">
             </div>
         </div>
+        
+        <div class="disclaimer">
+            By messaging Inline Demo, you agree to our <a href="#" class="disclaimer-link">Terms</a> and have read our <a href="#" class="disclaimer-link">Privacy Policy</a>.
+        </div>
     </div>
 
     <script type='text/javascript'>
 	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
-			embeddedservice_bootstrap.settings.devMode = true;
-			embeddedservice_bootstrap.settings.displayMode = 'inline';
-			embeddedservice_bootstrap.settings.headerEnabled = false;
-			embeddedservice_bootstrap.settings.targetElement = document.querySelector('.cwc-shell');
-
-			embeddedservice_bootstrap.init(
-				'00DSG00000XOfTf',
-				'cwc_5',
-				// 'https://orgfarm-63642acce8.my.site-com.832cppck0y5w1jssyfurq.wb.crm.dev:6101/ESWcwc1756150535161', // Derek
-				'https://orgfarm-23ad6b4bec.my.site-com.gztf9vyvubqy0of5evmyd.wb.crm.dev:6101/ESWcwc01761854650964',
-				{
-					scrt2URL: 'https://orgfarm-0b9845e12f.test1.my.pc-rnd.salesforce-scrt.com'
-					// scrt2URL: 'https://orgfarm-d585323017.test1.my.pc-rnd.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
+        try {
+            embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
+            embeddedservice_bootstrap.settings.devMode = true;
+            embeddedservice_bootstrap.settings.displayMode = 'inline';
+            embeddedservice_bootstrap.settings.headerEnabled = false;
+            embeddedservice_bootstrap.settings.targetElement = document.querySelector('.cwc-shell');
+			
+            embeddedservice_bootstrap.init(
+                '00DSG00000XOfTf',
+                'cwc_5',
+                // 'https://orgfarm-63642acce8.my.site-com.832cppck0y5w1jssyfurq.wb.crm.dev:6101/ESWcwc1756150535161', // Derek
+                'https://orgfarm-23ad6b4bec.my.site-com.gztf9vyvubqy0of5evmyd.wb.crm.dev:6101/ESWcwc01761854650964',
+                {
+                    scrt2URL: 'https://orgfarm-0b9845e12f.test1.my.pc-rnd.salesforce-scrt.com'
+                    // scrt2URL: 'https://orgfarm-d585323017.test1.my.pc-rnd.salesforce-scrt.com'
+                }
+            );
+        } catch (err) {
+            console.error('Error loading Embedded Messaging: ', err);
+        }
+    };
 </script>
 <script type='text/javascript' src='https://orgfarm-63642acce8.my.site-com.832cppck0y5w1jssyfurq.wb.crm.dev:6101/ESWcwc1756150535161/assets/js/init.js' onload='initEmbeddedMessaging()'></script>
     <!-- <script src="index.js"></script> -->
