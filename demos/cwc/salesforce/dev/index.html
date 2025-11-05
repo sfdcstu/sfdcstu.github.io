@@ -1,22 +1,97 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>CWC development</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main container for the entire layout */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            padding: 40px 20px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Title */
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #202123;
+            margin: 0 0 40px 0;
+            text-align: center;
+        }
+
+        /* Center the site content container */
+        .site-content-container {
+            flex: 1;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            width: 100%;
+            min-height: 0;
+        }
+
+        /* Style the centered cwc-shell */
+        #cwc-shell {
+            width: 48rem;
+            height: 100%;
+            background: #ffffff;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #cwc-shell iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none;
+            flex: 1;
+        }
+    </style>
 </head>
+
 <body>
+    <div class="main-container">
+        <h1 class="title">Inline</h1>
+        
+        <div class="site-content-container">
+            <div class="cwc-shell" id="cwc-shell">
+            </div>
+        </div>
+    </div>
 
-<script type='text/javascript'>
-	function initAgentforceMessaging() {
+    <script type='text/javascript'>
+	function initEmbeddedMessaging() {
 		try {
-			agentforce_messaging.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			agentforce_messaging.settings.devMode = true; // enable devMode to see un-minified js
+			embeddedservice_bootstrap.settings.language = 'en'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.devMode = true;
+			embeddedservice_bootstrap.settings.displayMode = 'inline';
+			embeddedservice_bootstrap.settings.headerEnabled = false;
+			embeddedservice_bootstrap.settings.targetElement = document.querySelector('.cwc-shell');
 
-			agentforce_messaging.init(
-				'00DSG00000HDf3Z',
-				'CWC2',
-				'https://orgfarm-45023f78ad.my.site-com.w7sugq0x8na00x76fmutq68m3.wc.crm.dev:6101/ESWCWC091001757534295759',
+			embeddedservice_bootstrap.init(
+				'00DSG00000XOfTf',
+				'cwc_5',
+				// 'https://orgfarm-63642acce8.my.site-com.832cppck0y5w1jssyfurq.wb.crm.dev:6101/ESWcwc1756150535161', // Derek
+				'https://orgfarm-23ad6b4bec.my.site-com.gztf9vyvubqy0of5evmyd.wb.crm.dev:6101/ESWcwc01761854650964',
 				{
-					scrt2URL: 'https://dsg00000hdf3z2at.test1.my.pc-rnd.salesforce-scrt.com'
+					scrt2URL: 'https://orgfarm-0b9845e12f.test1.my.pc-rnd.salesforce-scrt.com'
+					// scrt2URL: 'https://orgfarm-d585323017.test1.my.pc-rnd.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
@@ -24,6 +99,8 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://orgfarm-45023f78ad.my.site-com.w7sugq0x8na00x76fmutq68m3.wc.crm.dev:6101/ESWCWC091001757534295759/assets/js/init.js' onload='initAgentforceMessaging()'></script>
+<script type='text/javascript' src='https://orgfarm-63642acce8.my.site-com.832cppck0y5w1jssyfurq.wb.crm.dev:6101/ESWcwc1756150535161/assets/js/init.js' onload='initEmbeddedMessaging()'></script>
+    <!-- <script src="index.js"></script> -->
 </body>
+
 </html>
