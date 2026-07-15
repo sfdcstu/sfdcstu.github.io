@@ -25,6 +25,7 @@
 		<button onclick="init('Voice Planner', 'https://orgfarm-7677fab2ab.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000tZn2z')">Voice Planner</button>
 		<button onclick="init('Unified Planner', 'https://orgfarm-7677fab2ab.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000tZn2z')">Unified Planner</button>
 		<button onclick="init('SDB40 Unified Planner with Transcription', 'https://orgfarm-ae26564531.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000001PM6P')">SDB40 Unified Planner with Transcription</button>
+		<button onclick="init('CWC Unauth Voice 1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000TcgK5', 'CWC_Unauth_Voice_1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092')">CWC Unauth Voice 1</button>
 	</div>
 
 	<!-- <p>
@@ -51,29 +52,29 @@
 	</script>
 
 	<script type="text/javascript">
-		function init(plannerType, scrt2Url, orgId) {
+		function init(plannerType, scrt2Url, orgId, deploymentNameOverride, siteUrlOverride) {
 			try {
-					let deploymentName;
-					if (plannerType === "Voice Planner") {
-						deploymentName = "CWCUnauth1";
-					} else if (plannerType === "Unified Planner") {
-						deploymentName = "CWCUnauth2";
-					} else if (plannerType === "SDB40 Unified Planner with Transcription") {
-						deploymentName = "CWCUnauth1";
+					let deploymentName = deploymentNameOverride;
+					if (!deploymentName) {
+						if (plannerType === "Voice Planner") {
+							deploymentName = "CWCUnauth1";
+						} else if (plannerType === "Unified Planner") {
+							deploymentName = "CWCUnauth2";
+						} else if (plannerType === "SDB40 Unified Planner with Transcription") {
+							deploymentName = "CWCUnauth1";
+						}
 					}
-				
-				console.log("Initializing with:", plannerType, deploymentName, scrt2Url);
+
+				const siteUrl = siteUrlOverride || 'https://orgfarm-f4ab7b50ec.my.site-com.pyhwa2b2rvg70z62l90xkzdad119.wa.crm.dev:6101/ESWCWC01777358499446'; // CWC_00 willowy magpie
+				console.log("Initializing with:", plannerType, deploymentName, scrt2Url, siteUrl);
 
 				embeddedservice_bootstrap.settings.language = 'en';
 				embeddedservice_bootstrap.settings.devMode = true;
 
 				embeddedservice_bootstrap.init(
-					orgId, // orgId
+					orgId,
 					deploymentName,
-					'https://orgfarm-f4ab7b50ec.my.site-com.pyhwa2b2rvg70z62l90xkzdad119.wa.crm.dev:6101/ESWCWC01777358499446', // CWC_00 willowy magpie
-					// 'https://orgfarm-5c0eaf4b32.my.site-com.lsraak0bcwax154dhgxiomp.wa.crm.dev:6101/ESWCWC011776893455859', // CWC_01 worthy porcupine
-					// 'https://orgfarm-5c0eaf4b32.my.site-com.lsraak0bcwax154dhgxiomp.wa.crm.dev:6101/ESWCWC001776720708977', // CWC_00 worthy porcupine
-					// 'https://orgfarm-df6280a247.my.site-com.gqnakd70td1q0r2dnud7i5t9q11bs.wa.crm.dev:6101/ESWCWC11765849308644',
+					siteUrl,
 					{
 						scrt2URL: scrt2Url
 					}
@@ -85,10 +86,8 @@
 	</script>
 
 	<script
-		type="text/javascript"a
-		src="https://orgfarm-f4ab7b50ec.my.site-com.pyhwa2b2rvg70z62l90xkzdad119.wa.crm.dev:6101/ESWCWC01777358499446/assets/js/init.js"> // CWC_00 willowy magpie
-		// src="https://orgfarm-5c0eaf4b32.my.site-com.lsraak0bcwax154dhgxiomp.wa.crm.dev:6101/ESWCWC011776893455859/assets/js/init.js"> // CWC_01 worthy porcupine
-		// src="https://orgfarm-5c0eaf4b32.my.site-com.lsraak0bcwax154dhgxiomp.wa.crm.dev:6101/ESWCWC001776720708977/assets/js/init.js"> // CWC_00 worthy porcupine
+		type="text/javascript"
+		src="https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092/assets/js/bootstrap.js"> // Sachin CWC Unauth Voice 1
 		// src="https://orgfarm-df6280a247.my.site-com.gqnakd70td1q0r2dnud7i5t9q11bs.wa.crm.dev:6101/ESWCWC11765849308644/assets/js/init.js">
 	</script>
 </body>
