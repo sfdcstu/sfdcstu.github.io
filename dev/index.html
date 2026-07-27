@@ -14,10 +14,25 @@
 			font-size: 16px;
 			cursor: pointer;
 		}
+		.disclaimer {
+			margin: 16px 0;
+			padding: 12px 16px;
+			border-left: 4px solid #d97706;
+			background: #fff7ed;
+			color: #7c2d12;
+			font-size: 14px;
+			line-height: 1.4;
+			max-width: 720px;
+		}
 	</style>
 </head>
 <body>
-	<!-- <h1>SDB3-CWC-Unauth-1</h1> -->
+	<p class="disclaimer">
+		Note: Embedded Messaging can only be initialized once per page load. After you click a
+		button, the others are disabled to prevent conflicts. Refresh the page to try a different one.
+	</p>
+
+	<h1>SDB3</h1>
 	<!-- <h2 style="color:blue;">Admin: epic.acc29359158d@orgfarm.out</h2> -->
 
 	<!-- Buttons -->
@@ -27,6 +42,12 @@
 		<!-- <button onclick="init('SDB40 Unified Planner with Transcription', 'https://orgfarm-ae26564531.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000001PM6P')">SDB40 Unified Planner with Transcription</button> -->
 		<!-- <button onclick="init('CWC Unauth Voice 1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000TcgK5', 'CWC_Unauth_Voice_1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092')">CWC Unauth Voice 1</button> -->
 		<button onclick="init('CWC Unauth Voice 1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000TcgK5', 'CWC_Unauth_Voice_1', 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420')">ECv2</button>
+		<button onclick="initMIAW()">MIAW</button>
+	</div>
+
+	<h1>SDB40</h1>
+	<div class="button-container">
+		<button disabled title="Coming soon...">ECv2</button>
 		<button disabled title="Coming soon...">MIAW</button>
 	</div>
 
@@ -54,8 +75,46 @@
 	</script>
 
 	<script type="text/javascript">
+		function disableEmbeddingButtons() {
+			document.querySelectorAll('.button-container button').forEach((btn) => {
+				btn.disabled = true;
+				btn.title = 'Already initialized. Refresh the page to try another.';
+			});
+		}
+	</script>
+
+	<script type="text/javascript">
+		function initEmbeddedMessaging() {
+			try {
+				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+				embeddedservice_bootstrap.init(
+					'00DSB00000TcgK5',
+					'Web2',
+					'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWWeb21767636998721',
+					{
+						scrt2URL: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com'
+					}
+				);
+			} catch (err) {
+				console.error('Error loading Embedded Messaging: ', err);
+			}
+		};
+
+		function initMIAW() {
+			disableEmbeddingButtons();
+			const script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWWeb21767636998721/assets/js/bootstrap.min.js';
+			script.onload = initEmbeddedMessaging;
+			document.body.appendChild(script);
+		}
+	</script>
+
+	<script type="text/javascript">
 		function init(plannerType, scrt2Url, orgId, deploymentNameOverride, siteUrlOverride) {
 			try {
+					disableEmbeddingButtons();
 					let deploymentName = deploymentNameOverride;
 					if (!deploymentName) {
 						if (plannerType === "Voice Planner") {
