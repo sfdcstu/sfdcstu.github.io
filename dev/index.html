@@ -27,6 +27,24 @@
 			line-height: 1.4;
 			max-width: 720px;
 		}
+		.deployment-table {
+			border-collapse: collapse;
+			margin: 20px 0;
+		}
+		.deployment-table th,
+		.deployment-table td {
+			border: 1px solid #d1d5db;
+			padding: 10px 14px;
+			text-align: left;
+			vertical-align: middle;
+		}
+		.deployment-table th {
+			background: #f3f4f6;
+		}
+		.deployment-table .actions {
+			display: flex;
+			gap: 10px;
+		}
 	</style>
 </head>
 <body>
@@ -53,10 +71,29 @@
 	</div>
 
 	<h1>SDB40</h1>
-	<div class="button-container">
-		<button onclick="init('SDB40 File Upload', 'https://orgfarm-de44bfe252.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000003a8QL', 'FileuploadMessagingChannel', 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420', this)">ECv2</button>
-		<button disabled title="Coming soon...">MIAW</button>
-	</div>
+	<table class="deployment-table">
+		<thead>
+			<tr>
+				<th>Org</th>
+				<th>Org URL</th>
+				<th>Org ID</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Org 1</td>
+				<td><a href="https://orgfarm-de44bfe252.test2.lightning.pc-rnd.force.com/one/one.app" target="_blank">orgfarm-de44bfe252</a></td>
+				<td>00DoB000003a8QL</td>
+				<td>
+					<div class="actions">
+						<button onclick="init('SDB40 File Upload', 'https://orgfarm-de44bfe252.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000003a8QL', 'FileuploadMessagingChannel', 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420', this)">ECv2</button>
+						<button disabled title="Coming soon...">MIAW</button>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 
 	<!-- <p>
 		<a id="editThisPageLink" target="_blank" style="color:blue">Edit this page</a>
@@ -83,7 +120,7 @@
 
 	<script type="text/javascript">
 		function disableEmbeddingButtons(clickedButton) {
-			document.querySelectorAll('.button-container button').forEach((btn) => {
+			document.querySelectorAll('.button-container button, .deployment-table button').forEach((btn) => {
 				if (btn === clickedButton) return;
 				btn.disabled = true;
 				btn.title = 'Already initialized. Refresh the page to try another.';
