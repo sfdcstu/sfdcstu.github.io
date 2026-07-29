@@ -1,13 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<title>CWC</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
 	<style>
-		.button-container {
-			display: flex;
-			gap: 10px;
-			margin: 20px 0;
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+			margin: 24px;
+			color: #111827;
+		}
+		h1 {
+			font-size: 24px;
+		}
+		h2 {
+			margin-top: 32px;
 		}
 		button {
 			padding: 10px 20px;
@@ -29,7 +37,7 @@
 		}
 		.deployment-table {
 			border-collapse: collapse;
-			margin: 20px 0;
+			margin: 12px 0 20px;
 		}
 		.deployment-table th,
 		.deployment-table td {
@@ -48,6 +56,8 @@
 	</style>
 </head>
 <body>
+	<h1>CWC Embedded Messaging Test Harness</h1>
+
 	<p class="disclaimer">
 		Note: Embedded Messaging should only be initialized once per page load. Refresh the page to try a different one.
 	</p>
@@ -57,52 +67,8 @@
 		are for testing only &mdash; issues here do not reflect production experience.
 	</p>
 
-	<h1>SDB3</h1>
-	<!-- <h2 style="color:blue;">Admin: epic.acc29359158d@orgfarm.out</h2> -->
-
-	<!-- Buttons -->
-	<div class="button-container">
-		<!-- <button onclick="init('Voice Planner', 'https://orgfarm-7677fab2ab.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000tZn2z')">Voice Planner</button> -->
-		<!-- <button onclick="init('Unified Planner', 'https://orgfarm-7677fab2ab.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000tZn2z')">Unified Planner</button> -->
-		<!-- <button onclick="init('SDB40 Unified Planner with Transcription', 'https://orgfarm-ae26564531.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000001PM6P')">SDB40 Unified Planner with Transcription</button> -->
-		<!-- <button onclick="init('CWC Unauth Voice 1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000TcgK5', 'CWC_Unauth_Voice_1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092')">CWC Unauth Voice 1</button> -->
-		<button onclick="init('CWC Unauth Voice 1', 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com', '00DSB00000TcgK5', 'CWC_Unauth_Voice_1', 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420', this)">ECv2</button>
-		<button onclick="initMIAW(this)">MIAW</button>
-	</div>
-
-	<h1>SDB40</h1>
-	<table class="deployment-table">
-		<thead>
-			<tr>
-				<th>Org</th>
-				<th>Org URL</th>
-				<th>Org ID</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>Org 1</td>
-				<td><a href="https://orgfarm-de44bfe252.test2.lightning.pc-rnd.force.com/one/one.app" target="_blank">orgfarm-de44bfe252</a></td>
-				<td>00DoB000003a8QL</td>
-				<td>
-					<div class="actions">
-						<button onclick="init('SDB40 File Upload', 'https://orgfarm-de44bfe252.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000003a8QL', 'FileuploadMessagingChannel', 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420', this)">ECv2</button>
-						<button disabled title="Coming soon...">MIAW</button>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-
-	<!-- <p>
-		<a id="editThisPageLink" target="_blank" style="color:blue">Edit this page</a>
-	</p>
-
-	<script>
-		document.getElementById('editThisPageLink').href =
-			"https://github.com/sachinhreddy-sfdc/esw1234.github.io/new/master/sachin/SFW/main-2/cwc2.html";
-	</script> -->
+	<!-- Sections and rows are rendered from the DEPLOYMENTS config below. -->
+	<div id="deployments"></div>
 
 	<script>
 		window.addEventListener("onEmbeddedMessagingReady", () => {
@@ -118,9 +84,71 @@
 		});
 	</script>
 
+	<!--
+		Deployment config. Each section (SDB3, SDB40, ...) holds an array of org rows.
+		Per org, `ecv2` and `miaw` describe a bootstrap channel; set either to `null`
+		to render a disabled "Coming soon..." button.
+	-->
+	<script type="text/javascript">
+		const DEPLOYMENTS = {
+			SDB3: [
+				{
+					org: 'Org 1',
+					orgId: '00DSB00000TcgK5',
+					consoleUrl: null,
+					ecv2: {
+						bootstrapUrl: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092/assets/js/bootstrap.js',
+						deployment: 'CWC_Unauth_Voice_1',
+						scrt2Url: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com',
+						siteUrl: 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420',
+						language: 'en',
+						devMode: true
+					},
+					miaw: {
+						bootstrapUrl: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWWeb21767636998721/assets/js/bootstrap.min.js',
+						deployment: 'Web2',
+						scrt2Url: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com',
+						siteUrl: 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI11785190887038',
+						language: 'en_US'
+					}
+				}
+			],
+			SDB40: [
+				{
+					org: 'Org 1',
+					orgId: '00DoB000003a8QL',
+					consoleUrl: 'https://orgfarm-de44bfe252.test2.lightning.pc-rnd.force.com/one/one.app',
+					ecv2: {
+						bootstrapUrl: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092/assets/js/bootstrap.js',
+						deployment: 'FileuploadMessagingChannel',
+						scrt2Url: 'https://orgfarm-de44bfe252.test2.my.pc-rnd.salesforce-scrt.com',
+						siteUrl: 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420',
+						language: 'en',
+						devMode: true
+					},
+					miaw: null
+				},
+				{
+					org: 'Org 2',
+					orgId: '00DoB000003a9B7',
+					consoleUrl: 'https://orgfarm-8d892fcb06.test2.lightning.pc-rnd.force.com/one/one.app',
+					ecv2: null,
+					miaw: null
+				},
+				{
+					org: 'Org 3',
+					orgId: '00DoB000003a8i5',
+					consoleUrl: 'https://orgfarm-58829c7b7d.test2.lightning.pc-rnd.force.com/lightning/page/home',
+					ecv2: null,
+					miaw: null
+				}
+			]
+		};
+	</script>
+
 	<script type="text/javascript">
 		function disableEmbeddingButtons(clickedButton) {
-			document.querySelectorAll('.button-container button, .deployment-table button').forEach((btn) => {
+			document.querySelectorAll('.deployment-table button').forEach((btn) => {
 				if (btn === clickedButton) return;
 				btn.disabled = true;
 				btn.title = 'Already initialized. Refresh the page to try another.';
@@ -134,74 +162,111 @@
 			script.onload = onLoad;
 			document.body.appendChild(script);
 		}
-	</script>
 
-	<script type="text/javascript">
-		function initEmbeddedMessaging() {
-			try {
-				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-
-				embeddedservice_bootstrap.init(
-					'00DSB00000TcgK5',
-					'Web2',
-					// 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWWeb21767636998721', // SDB3
-					'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI11785190887038',
-					{
-						scrt2URL: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com'
-					}
-				);
-			} catch (err) {
-				console.error('Error loading Embedded Messaging: ', err);
-			}
-		};
-
-		function initMIAW(clickedButton) {
+		// Unified init for both ECv2 and MIAW channels; behavior is driven entirely by `channel`.
+		function initDeployment(orgId, channel, clickedButton) {
 			disableEmbeddingButtons(clickedButton);
-			loadBootstrap(
-				'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWWeb21767636998721/assets/js/bootstrap.min.js',
-				initEmbeddedMessaging
-			);
-		}
-	</script>
-
-	<script type="text/javascript">
-		function init(plannerType, scrt2Url, orgId, deploymentNameOverride, siteUrlOverride, clickedButton) {
-			disableEmbeddingButtons(clickedButton);
-			loadBootstrap(
-				'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.site.com/ESWCWCUnauthVoice11778613684092/assets/js/bootstrap.js', // Sachin CWC Unauth Voice 1
-				function () {
-					try {
-						let deploymentName = deploymentNameOverride;
-						if (!deploymentName) {
-							if (plannerType === "Voice Planner") {
-								deploymentName = "CWCUnauth1";
-							} else if (plannerType === "Unified Planner") {
-								deploymentName = "CWCUnauth2";
-							} else if (plannerType === "SDB40 Unified Planner with Transcription") {
-								deploymentName = "CWCUnauth1";
-							}
-						}
-
-						const siteUrl = siteUrlOverride || 'https://orgfarm-f4ab7b50ec.my.site-com.pyhwa2b2rvg70z62l90xkzdad119.wa.crm.dev:6101/ESWCWC01777358499446'; // CWC_00 willowy magpie
-						console.log("Initializing with:", plannerType, deploymentName, scrt2Url, siteUrl);
-
-						embeddedservice_bootstrap.settings.language = 'en';
+			loadBootstrap(channel.bootstrapUrl, function () {
+				try {
+					embeddedservice_bootstrap.settings.language = channel.language || 'en';
+					if (channel.devMode) {
 						embeddedservice_bootstrap.settings.devMode = true;
-
-						embeddedservice_bootstrap.init(
-							orgId,
-							deploymentName,
-							siteUrl,
-							{
-								scrt2URL: scrt2Url
-							}
-						);
-					} catch (err) {
-						console.error('Error loading Embedded Messaging: ', err);
 					}
+
+					console.log('Initializing with:', orgId, channel.deployment, channel.scrt2Url, channel.siteUrl);
+
+					embeddedservice_bootstrap.init(
+						orgId,
+						channel.deployment,
+						channel.siteUrl,
+						{
+							scrt2URL: channel.scrt2Url
+						}
+					);
+				} catch (err) {
+					console.error('Error loading Embedded Messaging: ', err);
 				}
-			);
+			});
 		}
+	</script>
+
+	<script type="text/javascript">
+		function orgLabelFromUrl(url) {
+			try {
+				return new URL(url).hostname.split('.')[0];
+			} catch (err) {
+				return url;
+			}
+		}
+
+		function makeChannelButton(label, channel, orgId) {
+			const btn = document.createElement('button');
+			btn.textContent = label;
+			if (!channel) {
+				btn.disabled = true;
+				btn.title = 'Coming soon...';
+				return btn;
+			}
+			btn.addEventListener('click', function () {
+				initDeployment(orgId, channel, btn);
+			});
+			return btn;
+		}
+
+		function renderDeployments() {
+			const root = document.getElementById('deployments');
+
+			Object.keys(DEPLOYMENTS).forEach(function (section) {
+				const heading = document.createElement('h2');
+				heading.textContent = section;
+				root.appendChild(heading);
+
+				const table = document.createElement('table');
+				table.className = 'deployment-table';
+				table.innerHTML =
+					'<thead><tr><th>Org</th><th>Org URL</th><th>Org ID</th><th>Actions</th></tr></thead>';
+
+				const tbody = document.createElement('tbody');
+				DEPLOYMENTS[section].forEach(function (row) {
+					const tr = document.createElement('tr');
+
+					const orgCell = document.createElement('td');
+					orgCell.textContent = row.org;
+
+					const urlCell = document.createElement('td');
+					if (row.consoleUrl) {
+						const link = document.createElement('a');
+						link.href = row.consoleUrl;
+						link.target = '_blank';
+						link.textContent = orgLabelFromUrl(row.consoleUrl);
+						urlCell.appendChild(link);
+					} else {
+						urlCell.textContent = '\u2014';
+					}
+
+					const idCell = document.createElement('td');
+					idCell.textContent = row.orgId;
+
+					const actionCell = document.createElement('td');
+					const actions = document.createElement('div');
+					actions.className = 'actions';
+					actions.appendChild(makeChannelButton('ECv2', row.ecv2, row.orgId));
+					actions.appendChild(makeChannelButton('MIAW', row.miaw, row.orgId));
+					actionCell.appendChild(actions);
+
+					tr.appendChild(orgCell);
+					tr.appendChild(urlCell);
+					tr.appendChild(idCell);
+					tr.appendChild(actionCell);
+					tbody.appendChild(tr);
+				});
+
+				table.appendChild(tbody);
+				root.appendChild(table);
+			});
+		}
+
+		renderDeployments();
 	</script>
 </body>
 </html>
