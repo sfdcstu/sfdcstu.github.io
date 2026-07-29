@@ -31,13 +31,12 @@
 </head>
 <body>
 	<p class="disclaimer">
-		Note: Embedded Messaging can only be initialized once per page load. After you click a
-		button, the others are disabled to prevent conflicts. Refresh the page to try a different one.
+		Note: Embedded Messaging should only be initialized once per page load. Refresh the page to try a different one.
 	</p>
 
 	<p class="disclaimer">
 		If clicking a button doesn't work at first, wait a few seconds and try again. These buttons
-		are for testing only &mdash; any issues here do not affect the production experience.
+		are for testing only &mdash; issues here do not reflect production experience.
 	</p>
 
 	<h1>SDB3</h1>
@@ -55,7 +54,7 @@
 
 	<h1>SDB40</h1>
 	<div class="button-container">
-		<button disabled title="Coming soon...">ECv2</button>
+		<button onclick="init('SDB40 File Upload', 'https://orgfarm-de44bfe252.test2.my.pc-rnd.salesforce-scrt.com', '00DoB000003a8QL', 'FileuploadMessagingChannel', 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420', this)">ECv2</button>
 		<button disabled title="Coming soon...">MIAW</button>
 	</div>
 
