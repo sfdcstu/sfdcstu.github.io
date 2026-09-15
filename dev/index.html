@@ -86,8 +86,8 @@
 
 	<!--
 		Deployment config. Each section (SDB3, SDB40, ...) holds an array of org rows.
-		Per org, `ecv2` and `miaw` describe a bootstrap channel; set either to `null`
-		to render a disabled "Coming soon..." button.
+		Per org, `ecv2`, `miaw`, and `dev` describe a bootstrap channel; omit a key to
+		hide that button, or set it to `null` to render a disabled "Coming soon..." button.
 	-->
 	<script type="text/javascript">
 		const ecv2SiteUrl = 'https://orgfarm-37920efe42.my.site-com.hgnabxlmytz80xnv3cjqwk2kw0hh8.wb.crm.dev:6101/ESWDRI01784146514420';
@@ -172,6 +172,20 @@
 						deployment: 'FileuploadMiaw',
 						scrt2Url: 'https://orgfarm-58829c7b7d.test2.my.pc-rnd.salesforce-scrt.com',
 						siteUrl: miawSiteUrl,
+						language: 'en_US'
+					}
+				}
+			],
+			Local: [
+				{
+					org: 'X264 File',
+					orgId: '00Dxx00FaPQ2dhM',
+					consoleUrl: null,
+					dev: {
+						bootstrapUrl: 'https://orgfarm-7619761751.my.site-com.hnvxb3d0yi6m0jfbhrgrsqmxk1cztw7.wa.crm.dev:6101/ESWX264File1789076189011/assets/js/bootstrap.min.js',
+						deployment: 'X264_File',
+						scrt2Url: 'http://orgfarm-7619761751.my.salesforce-scrt-com.hnvxb3d0yi6m0jfbhrgrsqmxk1cztw7.wa.crm.dev',
+						siteUrl: 'https://orgfarm-7619761751.my.site-com.hnvxb3d0yi6m0jfbhrgrsqmxk1cztw7.wa.crm.dev:6101/ESWX264File1789076189011',
 						language: 'en_US'
 					}
 				}
@@ -283,8 +297,15 @@
 					const actionCell = document.createElement('td');
 					const actions = document.createElement('div');
 					actions.className = 'actions';
-					actions.appendChild(makeChannelButton('ECv2', row.ecv2, row.orgId));
-					actions.appendChild(makeChannelButton('MIAW', row.miaw, row.orgId));
+					if ('ecv2' in row) {
+						actions.appendChild(makeChannelButton('ECv2', row.ecv2, row.orgId));
+					}
+					if ('miaw' in row) {
+						actions.appendChild(makeChannelButton('MIAW', row.miaw, row.orgId));
+					}
+					if ('dev' in row) {
+						actions.appendChild(makeChannelButton('Dev', row.dev, row.orgId));
+					}
 					actionCell.appendChild(actions);
 
 					tr.appendChild(orgCell);
