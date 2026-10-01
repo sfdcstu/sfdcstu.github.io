@@ -178,15 +178,16 @@
 			],
 			Local: [
 				{
-					org: 'X264 File',
-					orgId: '00Dxx00FaPQ2dhM',
+					org: 'CWC2',
+					orgId: '00DSB00000TcgK5',
 					consoleUrl: null,
 					dev: {
-						bootstrapUrl: 'https://orgfarm-7619761751.my.site-com.hnvxb3d0yi6m0jfbhrgrsqmxk1cztw7.wa.crm.dev:6101/ESWX264File1789076189011/assets/js/bootstrap.min.js',
-						deployment: 'X264_File',
-						scrt2Url: 'https://orgfarm-de44bfe252.test2.my.pc-rnd.salesforce-scrt.com',
-						siteUrl: 'https://orgfarm-7619761751.my.site-com.hnvxb3d0yi6m0jfbhrgrsqmxk1cztw7.wa.crm.dev:6101/ESWX264File1789076189011',
-						language: 'en_US'
+						bootstrapUrl: 'https://orgfarm-09f6761af7.my.site-com.4mqh8q7zbhyw1r99fmsfch7o8.wc.crm.dev:6101/ESWECV2Unauth11786472030403/assets/js/bootstrap.js',
+						deployment: 'CWC2',
+						scrt2Url: 'https://orgfarm-47f8da4be3.demo.test1.my.pc-rnd.salesforce-scrt.com',
+						siteUrl: 'https://orgfarm-09f6761af7.my.site-com.4mqh8q7zbhyw1r99fmsfch7o8.wc.crm.dev:6101/ESWECV2Unauth11786472030403',
+						language: 'en',
+						devMode: true
 					}
 				}
 			]
@@ -219,6 +220,7 @@
 					if (channel.devMode) {
 						embeddedservice_bootstrap.settings.devMode = true;
 					}
+					embeddedservice_bootstrap.settings.disableFileUploadToBots = true;
 
 					console.log('Initializing with:', orgId, channel.deployment, channel.scrt2Url, channel.siteUrl);
 
